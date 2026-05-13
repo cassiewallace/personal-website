@@ -1,4 +1,11 @@
-# Cassie Wallace's Personal Website
+# cassiewallace.net
 
-This is my personal website, built with <a href="http://getskeleton.com/">Skeleton</a>
- and <a href="https://firebase.google.com/">Firebase</a>.
+Personal site built with [Astro](https://astro.build) and deployed on [Cloudflare Pages](https://pages.cloudflare.com).
+
+## Development
+
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # production build → dist/
+```
