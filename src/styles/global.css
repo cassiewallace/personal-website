@@ -1,1 +1,23 @@
-/* Site-wide custom styles */
+/* Global styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: 'Work Sans', Helvetica, sans-serif;
+  color: #000;
+}
+
+/* Inline text links */
+a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 3px solid #c8d900;
+}
+
+a:hover {
+  border-bottom-color: #000;
+}
