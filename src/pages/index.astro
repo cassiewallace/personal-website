@@ -9,6 +9,12 @@ const work = [
     desc: 'Expert nutrition care, covered by insurance.',
   },
   {
+    href: '/dotfiles',
+    title: 'dotfiles',
+    desc: 'Shell config, Claude Code setup, and iOS agent skills for Swift engineers.',
+    label: 'open source',
+  },
+  {
     href: 'https://apps.apple.com/us/app/handshake-jobs-new-careers/id1220620171',
     title: 'Handshake',
     desc: 'Early career jobs for students and new grads.',
@@ -38,10 +44,9 @@ const work = [
 
     <!-- Work -->
     <section class="work">
-      <h2 class="section-label">Apps I've Worked On</h2>
       <div class="cards">
         {work.map((item) => (
-          <WorkCard href={item.href} title={item.title} desc={item.desc} />
+          <WorkCard href={item.href} title={item.title} desc={item.desc} label={item.label} />
         ))}
       </div>
     </section>
@@ -120,18 +125,9 @@ const work = [
     padding: 44px 0 48px;
   }
 
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin: 0 0 24px;
-  }
-
   .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
