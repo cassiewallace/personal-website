@@ -1,0 +1,178 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/subpage.css';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  label: string;
+  date?: string;
+  pageTitle?: string;
+}
+
+const { title, subtitle, label, date, pageTitle } = Astro.props;
+---
+
+<BaseLayout title={pageTitle ?? `${title} — Cassie Wallace`}>
+  <div class="page">
+
+    <!-- Top nav -->
+    <nav class="top-nav">
+      <a href="/" class="back">← Back</a>
+      <span class="site-name">Cassie Wallace</span>
+    </nav>
+
+    <div class="rule"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="meta">
+        <span>{label}</span>
+        {date && <span>{date}</span>}
+      </div>
+      <h1 class="title">{title}</h1>
+      <p class="subtitle">{subtitle}</p>
+    </header>
+
+    <div class="rule"></div>
+
+    <!-- Body -->
+    <div class="body">
+      <slot />
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>iOS · Swift · SwiftUI · UIKit</div>
+      <div>© 2026</div>
+    </footer>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    min-height: 100vh;
+    padding: 72px 64px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  /* Inner column — everything constrained to 680px */
+  .top-nav,
+  .rule,
+  .header,
+  .body,
+  .footer {
+    width: 100%;
+    max-width: 680px;
+  }
+
+  /* Top nav */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .back {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: none;
+  }
+
+  .back:hover {
+    border-bottom: none;
+    opacity: 0.6;
+  }
+
+  .site-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Rule */
+  .rule {
+    height: 1px;
+    background: #c8d900;
+    margin: 24px 0;
+  }
+
+  /* Header */
+  .header {
+    padding: 24px 0 36px;
+    margin: 0;
+  }
+
+  /* First rule after nav gets no extra top margin */
+  .top-nav + .rule {
+    margin-top: 24px;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .title {
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 18px 0 14px;
+    text-wrap: balance;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Body */
+  .body {
+    padding: 36px 0 48px;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .page {
+      padding: 48px 24px 40px;
+      align-items: stretch;
+    }
+
+    .title {
+      font-size: 32px;
+    }
+  }
+</style>
