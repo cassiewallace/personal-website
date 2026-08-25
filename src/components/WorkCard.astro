@@ -14,7 +14,7 @@ const { href, title, desc, label = 'iOS app' } = Astro.props;
     <span>{label}</span>
   </div>
   <div class="card-body">
-    <div class="card-title">{title}</div>
+    <div><span class="card-title">{title}</span></div>
     <div class="card-desc">{desc}</div>
   </div>
 </a>
@@ -58,6 +58,10 @@ const { href, title, desc, label = 'iOS app' } = Astro.props;
     letter-spacing: -0.02em;
     line-height: 1.15;
     margin-top: 18px;
+    display: inline-block;
+    border-bottom: 3px solid #c8d900;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
   }
 
   .card-desc {
