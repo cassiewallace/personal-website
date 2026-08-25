@@ -1,0 +1,68 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  desc: string;
+  label?: string;
+}
+
+const { href, title, desc, label = 'iOS app' } = Astro.props;
+---
+
+<a href={href} class="card">
+  <div class="card-meta">
+    <span>{label}</span>
+  </div>
+  <div class="card-body">
+    <div class="card-title">{title}</div>
+    <div class="card-desc">{desc}</div>
+  </div>
+</a>
+
+<style>
+  .card {
+    background: #fff;
+    border: 3px solid #000;
+    border-bottom: 3px solid #000; /* explicit — overrides global link border-bottom color */
+    padding: 20px;
+    box-shadow: 6px 6px 0 #000;
+    color: #000;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+
+  .card:hover {
+    box-shadow: 3px 3px 0 #000;
+    transform: translate(3px, 3px);
+    border-bottom-color: #000;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-top: 18px;
+  }
+
+  .card-desc {
+    font-size: 15px;
+    line-height: 1.45;
+    margin-top: 8px;
+  }
+</style>
