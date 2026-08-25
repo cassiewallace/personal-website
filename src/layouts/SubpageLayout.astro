@@ -7,10 +7,11 @@ interface Props {
   subtitle: string;
   label: string;
   date?: string;
+  href?: string;
   pageTitle?: string;
 }
 
-const { title, subtitle, label, date, pageTitle } = Astro.props;
+const { title, subtitle, label, date, href, pageTitle } = Astro.props;
 ---
 
 <BaseLayout title={pageTitle ?? `${title} — Cassie Wallace`}>
@@ -32,6 +33,7 @@ const { title, subtitle, label, date, pageTitle } = Astro.props;
       </div>
       <h1 class="title">{title}</h1>
       <p class="subtitle">{subtitle}</p>
+      {href && <a href={href} class="header-link">{href.replace('https://', '')}</a>}
     </header>
 
     <div class="rule"></div>
@@ -105,18 +107,13 @@ const { title, subtitle, label, date, pageTitle } = Astro.props;
   .rule {
     height: 1px;
     background: #c8d900;
-    margin: 24px 0;
+    margin: 16px 0;
   }
 
   /* Header */
   .header {
-    padding: 24px 0 36px;
+    padding: 16px 0 24px;
     margin: 0;
-  }
-
-  /* First rule after nav gets no extra top margin */
-  .top-nav + .rule {
-    margin-top: 24px;
   }
 
   .meta {
@@ -145,10 +142,21 @@ const { title, subtitle, label, date, pageTitle } = Astro.props;
     margin: 0;
   }
 
+  .header-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-weight: 700;
+    border-bottom: 3px solid #c8d900;
+  }
+
+  .header-link:hover {
+    border-bottom-color: #000;
+  }
+
   /* Body */
   .body {
-    padding: 36px 0 48px;
-    font-size: 18px;
+    padding: 28px 0 40px;
+    font-size: 16px;
     line-height: 1.65;
   }
 

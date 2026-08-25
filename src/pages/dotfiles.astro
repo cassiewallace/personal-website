@@ -1,0 +1,38 @@
+---
+import SubpageLayout from '../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout
+  title="dotfiles"
+  subtitle="My macOS dev environment for AI-era iOS engineering."
+  label="Open source"
+  href="https://github.com/cassiewallace/dotfiles"
+>
+  <p>The repo started years ago as just my zsh config (yes, back when I was a Product Manager!) As my Claude Code setup has been getting more dialed in, it made sense to track that the same way.</p>
+
+  <p>It's all in there: my global CLAUDE.md, settings.json, a FlowDeck hook, and a manifest of the agent skills I lean on for Swift, SwiftUI, UIKit, and accessibility work. One <code>install.sh</code> symlinks everything and re-installs the skills.</p>
+
+  <p>If you're another iOS engineer trying to make Claude actually work for you, take what's useful.</p>
+
+  <h2>What's included</h2>
+
+  <ul>
+    <li><strong>zsh/</strong> — .zshrc and .aliases.</li>
+    <li><strong>claude/.claude/CLAUDE.md</strong> — Global instructions covering Swift style, verification rules, PR/commit conventions, and pointers to every agent skill.</li>
+    <li><strong>claude/.claude/settings.json</strong> — Theme, enabled plugins, and the FlowDeck PreToolUse hook.</li>
+    <li><strong>hooks/flowdeck/flowdeck-guard.sh</strong> — Blocks xcodebuild, xcrun simctl, xcrun devicectl, and friends in favor of FlowDeck, the agent-friendly replacement for Apple's CLI tools.</li>
+    <li><strong>hooks/prose-guard.py</strong> — Stop hook that blocks banned phrasing in agent prose.</li>
+    <li><strong>agents/.agents/skills/</strong> — Agent skills I wrote myself, tracked as content because nothing else can restore them.</li>
+    <li><strong>skills.manifest</strong> — Every external agent skill I use, with the npx install command to re-install it.</li>
+  </ul>
+
+  <h2>Agent skills</h2>
+
+  <ul>
+    <li><strong>swift-concurrency</strong> — async/await, actors, Sendable, Swift 6 strict-concurrency migration.</li>
+    <li><strong>swift-testing-expert</strong> — Swift Testing (@Test, #expect, traits, parameterization), XCTest migration.</li>
+    <li><strong>swiftui-expert-skill</strong> — SwiftUI state, layout, animation, Instruments trace analysis.</li>
+    <li><strong>ios-accessibility</strong> — VoiceOver, Dynamic Type, traits, focus order; iOS-wide audit.</li>
+    <li><strong>airbnb-swift-style</strong> — Enforces the Airbnb Swift style guide.</li>
+  </ul>
+</SubpageLayout>
