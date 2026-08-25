@@ -1,0 +1,27 @@
+/* Subpage body content styles — scoped to .body slot content */
+
+/* Bullet list (project pages) */
+.body ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Prose paragraphs (writing pages) */
+.body p {
+  margin: 0 0 22px;
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Section subheading (writing pages) */
+.body h2 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 40px 0 16px;
+}
