@@ -1,5 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const work = [
+  {
+    href: 'https://apps.apple.com/us/app/fay-nutrition-dietitians/id6711357628',
+    title: 'Fay',
+    desc: 'Expert nutrition care, covered by insurance.',
+  },
+  {
+    href: 'https://apps.apple.com/us/app/handshake-jobs-new-careers/id1220620171',
+    title: 'Handshake',
+    desc: 'Early career jobs for students and new grads.',
+  },
+];
 ---
 
 <BaseLayout>
@@ -22,6 +36,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <div class="divider"></div>
 
+    <!-- Work -->
+    <section class="work">
+      <h2 class="section-label">Apps I've Worked On</h2>
+      <div class="cards">
+        {work.map((item) => (
+          <WorkCard href={item.href} title={item.title} desc={item.desc} />
+        ))}
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- Footer -->
     <footer class="footer">
       <div>iOS · Swift · SwiftUI · UIKit</div>
@@ -40,10 +66,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     position: relative;
   }
 
-  /* Hero — flex-grow pushes divider + footer to the bottom on tall viewports */
   .hero {
-    flex-grow: 1;
-    padding-bottom: 96px;
+    padding-bottom: 56px;
   }
 
   .headline {
@@ -91,6 +115,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: #c8d900;
   }
 
+  /* Work */
+  .work {
+    padding: 44px 0 48px;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
   /* Footer */
   .footer {
     display: flex;
@@ -115,6 +159,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .hero {
       padding-bottom: 64px;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
     }
   }
 </style>
