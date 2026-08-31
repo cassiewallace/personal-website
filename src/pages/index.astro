@@ -19,6 +19,12 @@ const work = [
     title: 'Handshake',
     desc: 'Early career jobs for students and new grads.',
   },
+  {
+    href: '/airbnb-swift-style',
+    title: 'airbnb-swift-style',
+    desc: 'Airbnb Swift Style Guide enforcement for AI coding agents.',
+    label: 'agent skill',
+  },
 ];
 ---
 
@@ -125,7 +131,7 @@ const work = [
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
   }
 
@@ -142,6 +148,12 @@ const work = [
   }
 
   /* Responsive */
+  @media (max-width: 1000px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (max-width: 600px) {
     .page {
       padding: 48px 24px 40px;
