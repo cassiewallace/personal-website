@@ -1,0 +1,35 @@
+---
+import SubpageLayout from '../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout
+  title="airbnb-swift-style"
+  subtitle="Airbnb Swift Style Guide enforcement for any AI coding agent."
+  label="Agent skill"
+  href="https://github.com/cassiewallace/Airbnb-Swift-Style-Agent-Skill"
+>
+  <p>If you've reviewed my iOS code, you know I love the Airbnb Swift Style Guide. So I published my first agent skill to enforce it for AI coding agents.</p>
+
+  <p>It works with Claude Code, Cursor, and any tool that supports the Agent Skills open format, automatically reviewing Swift code for naming, formatting, and pattern violations based on Airbnb's style guide.</p>
+
+  <h2>Install it in one line</h2>
+
+  <pre><code>npx skills add cassiewallace/Airbnb-Swift-Style-Agent-Skill</code></pre>
+
+  <h2>What it does</h2>
+
+  <ul>
+    <li><strong>Reviews and lints.</strong> Scans any Swift file or snippet, groups findings by category (Naming, Formatting, Style, Patterns), quotes the offending line, and gives back a corrected version.</li>
+    <li><strong>Enforces naming.</strong> Casing, boolean prefixes (<code>is</code>, <code>has</code>, <code>does</code>), acronym capitalization, and past-tense event handlers (<code>didTapSave</code>, not <code>handleSave</code>).</li>
+    <li><strong>Enforces formatting.</strong> The 100-character line limit, 2-space indentation, and trailing whitespace.</li>
+    <li><strong>Applies style patterns.</strong> Redundant <code>self</code>, type inference, force-unwrapping, <code>guard</code> early exits, and most-restrictive access control.</li>
+    <li><strong>Rewrites code.</strong> Returns a clean version of any snippet with a summary of every change it made.</li>
+  </ul>
+
+  <h2>Why I built it this way</h2>
+
+  <ul>
+    <li><strong>Grounded in the actual guide.</strong> Every rule maps back to a section of Airbnb's guide. If there's ever a discrepancy, the upstream guide wins.</li>
+    <li><strong>It works alongside your linters.</strong> SwiftFormat and SwiftLint already handle mechanical formatting. This handles the judgment calls: naming intent, pattern choice, and access control.</li>
+  </ul>
+</SubpageLayout>
